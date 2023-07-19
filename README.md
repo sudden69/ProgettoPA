@@ -47,6 +47,7 @@ Sarà sufficiente utilizzare il comando docker-compose up
 - **GET /api/move-history/:gameId**: Ottieni la cronologia delle mosse di una partita specifica.
 - **GET /api/leaderboard**: Ottieni la classifica.
 
+Le api postman utilizzate per i test si possono ottenere con la seguente chiave: https://api.postman.com/collections/26036241-0e3595dc-05ff-499a-9322-7201b38653f0?access_key=PMAT-01H5R2RAZH4SWXBBS7XBF4VSTV
 ## Dati di Test
 
 L'applicazione fornisce dati di test per inizializzare il sistema. È possibile eseguire il seguente comando per popolare il database con dati di esempio:

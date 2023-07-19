@@ -1,0 +1,19 @@
+version: '3'
+services:
+  tic_tac_toe:
+    image: tic_tac_toe:PA
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://postgres:admin@db:5432/postgres
+
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=postgres

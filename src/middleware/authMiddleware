@@ -1,0 +1,30 @@
+import { Request, Response, NextFunction } from 'express';
+import { verifyToken } from '../utils/jwtUtils';
+
+interface CustomRequest extends Request {
+    user: any; 
+  }
+  const authMiddleware = (req: CustomRequest, res: Response, next: NextFunction): void => {
+    const token = req.header('Authorization')?.replace('Bearer ', '');
+  
+    if (!token) {
+      res.status(401).json({ error: 'Unauthorized' });
+      return;
+    }
+  
+    try {
+      const decoded = verifyToken(token);
+      req.user = decoded;
+  
+      // Aggiungi un controllo per verificare se l'utente è un amministratore
+      if (req.user.isAdmin) {
+        next(); // Se l'utente è amministratore, passa al middleware successivo
+      } else {
+        res.status(403).json({ error: 'Access denied' }); // Se l'utente non è amministratore, restituisci errore 403
+      }
+    } catch (error) {
+      res.status(401).json({ error: 'Invalid token' });
+    }
+  };
+  
+  export default authMiddleware;

@@ -1,0 +1,39 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "email": "user1@example.com",
+        "password": "$2b$10$BXaA/dJx9U7Igbh7XmZMi.sSulBX9EuQNTXEx5K0F6v5BOHmRYbK6",
+        "credit": 10
+      },
+      {
+        "id": 2,
+        "email": "user2@example.com",
+        "password": "$2b$10$iJnXl4ZJmEBu/4ogJoUfo.YUW8UDZRbG9MfXXSbHgixSbRmcjUaxm",
+        "credit": 5
+      }
+    ],
+    "games": [
+      {
+        "id": 1,
+        "userId": 1,
+        "opponentId": 2,
+        "status": "in_progress"
+      }
+    ],
+    "moves": [
+      {
+        "id": 1,
+        "gameId": 1,
+        "userId": 1,
+        "position": 4
+      },
+      {
+        "id": 2,
+        "gameId": 1,
+        "userId": 2,
+        "position": 2
+      }
+    ]
+  }
+  

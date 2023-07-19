@@ -55,6 +55,11 @@ L'applicazione fornisce dati di test per inizializzare il sistema. È possibile 
 ```bash
 node dist\seed.ts
 ```
+## Design Pattern
+
+Singleton:
+L'utilizzo delle variabili app, sequelize, e dotenv.config() segue un approccio singleton, garantendo che ci sia una sola istanza di queste variabili nell'applicazione. In particolare ogni model fa affidamento sulla stessa connessione al database.
+
 
 ## Come Giocare
 

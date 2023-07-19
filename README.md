@@ -60,6 +60,42 @@ node dist\seed.ts
 Singleton:
 L'utilizzo delle variabili app, sequelize, e dotenv.config() segue un approccio singleton, garantendo che ci sia una sola istanza di queste variabili nell'applicazione. In particolare ogni model fa affidamento sulla stessa connessione al database.
 
+Il progetto ha una struttura organizzata secondo il pattern MVC (Model-View-Controller) con l'uso di middleware. Ecco come le diverse componenti del progetto si collegano al pattern MVC:
+
+Model:
+
+Nella directory models viene sviluppato il modello di Game, Move, e User in un singolo file models.ts. Questo utilizza il pattern factory e lascia che l'implemantazione finale avvenga in db.ts
+
+User: rappresenta gli attributi di un utente e fornisce metodi per accedere a questi dati, tra cui la proprietà isAdmin che determina se l'user è in grado di gestire e ricaricare il proprio credito e quello degli altri utenti, ma anche la creazione, l'aggiornamento, la ricerca di utenti esistenti.
+
+Game: rappresenta una singola partita nel database e contiene lo status sia come messaggio di testo sia come array di simboli 'X' e 'O'. Riporta i due avversari o l'utente e l'AI, il vincitore della partita, se la partita è stata abbandonata. 
+
+Move: rappresenta una singola mossa effettuata da un utente o da un AI. Esistono dei controlli di validità che verranno gestiti dai middleware.  
+
+Controller:
+userController: implementa le richieste delle rotte relative agli utenti, come l'aggiornamento dell'email e del nome utente oppure la stampa di un json con gli attributi dell'utente dato un JWT di autenticazione.
+
+gameController: sviluppa il codice relativo alle partite, come la creazione di una nuova partita, la classifica(rotta pubblica), la gestione delle mosse dell'intelligenza artificiale, la gestione e l'aggiornamento delle mosse(si è preferito non sviluppare un controller apposito),  la possibilità di abbandono e la logica di vittoria. Sono presenti anche diverse funzioni di utilità, come la funzione di generazione pdf per lo storico delle mosse.
+
+authController: qui avviene l'autenticazione attraverso i token jwt, in particolare nel processo di registrazione di nuovi utenti 
+
+userAdminController: controller apposito dell'admin per la gestione del credito degli utenti.
+
+Middleware:
+
+authenticateToken: sono presenti due middleware separati per la gestione degli errori dei token di autenticazione di un utente admin o user semplice, questo per una gestione più semplice in fase di debug
+
+isAdmin: verifica il flag isAdmin e se risulta false nega l'accesso alla funzione di ricarica dei token
+
+errorHandler: gestisce i casi base di Internal Server Error 500
+
+validateRequest: valida le richieste, come ad esempio l'uso di mosse non valide all'interno del gioco.
+
+Il progetto segue quindi una struttura MVC ben precisi, dove le componenti del modello gestiscono l'accesso ai dati, i controller si occupano dell'elaborazione delle richieste degli utenti e delle logiche alla loro base, e i middleware eseguono la validazione e le verifiche necessarie prima di passare alle componenti di modello o controller, rendendo il codice più manutenibile.
+
+## Diagrammi UML
+
+
 
 ## Come Giocare
 

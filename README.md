@@ -1,4 +1,4 @@
-![image](https://github.com/sudden69/ProgettoPA/assets/62214136/cc28643b-0bf6-4818-80ae-6467482bdb9e)# Tic Tac Toe - Backend
+# Tic Tac Toe - Backend
 
 
 ## Descrizione

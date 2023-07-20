@@ -14,7 +14,7 @@ Questo progetto è un'applicazione backend che consente agli utenti di giocare a
 - Abbandono della Partita: Gli utenti possono abbandonare una partita in corso.
 - Stato della Partita: Gli utenti possono verificare lo stato di una partita specifica, inclusi i dettagli di chi è il turno e se la partita è terminata o meno.
 - Cronologia delle Mosse: Gli utenti possono richiedere la cronologia delle mosse di una partita, selezionando il formato di output (PDF o JSON) e specificando un periodo di tempo (data di inizio, data di fine).
-- Classifica: È disponibile una rotta pubblica per ottenere la classifica, che mostra il numero di partite vinte, partite vinte per abbandono, partite perse e partite perse per abbandono. La classifica può essere ordinata in ordine crescente o decrescente e mostra le statistiche per le partite contro utenti reali e IA. Il punteggio è calcolato in base al numero di partite vinte, considerando anche le partite vinte per abbandono.
+- Classifica: È disponibile una rotta pubblica per ottenere la classifica, che mostra il numero di partite vinte, partite vinte per abbandono, partite perse e partite perse per abbandono. La classifica può essere ordinata in ordine crescente o decrescente e mostra le statistiche per le partite contro utenti reali e IA. Il primo classificato risulta essere chi totalizza il maggior numero di partite vinte, considerando anche le partite vinte per abbandono.
 
 ## Installazione
 
@@ -35,6 +35,8 @@ npm install
 Sarà sufficiente utilizzare il comando docker-compose up
 
 Il server dovrebbe essere in esecuzione su http://localhost:3000, mentre il db su http://localhost:5432, ma internamente al container.
+
+Nel caso si voglia optare per l'avvio in locale, con possibilità di modifica del codice sorgente, dopo aver installato ogni dipendenza (sequelize, pdfkit, dotenv etc) con npm install, si proceda alla compilazione con il comando tsc e infine all'avvio con node dist/server.js.
 
 ## Endpoint API
 

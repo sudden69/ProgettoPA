@@ -175,7 +175,7 @@ Gestione Partite:
 
 ![image](https://github.com/sudden69/ProgettoPA/assets/62214136/006acfd0-2308-46ca-9009-3755c0087fee)
 
-Diagramma Classi: (Concettuale, nell'implementazione non è stata necessaria una classe AI e non si sono usate le enum, la gestione è stata diversa ma con la stessa logica
+Diagramma Classi: (Concettuale, nell'implementazione non è stata necessaria una classe AI e non si sono usate le enum, la gestione è stata diversa ma con la stessa logica)
 
 ![image](https://github.com/sudden69/ProgettoPA/assets/62214136/e8e59502-d954-4ec4-adb6-b9ef53daacee)
 

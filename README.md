@@ -49,7 +49,7 @@ Il server dovrebbe essere in esecuzione su http://localhost:3000, mentre il db s
 
 Le api postman utilizzate per i test si possono ottenere con la seguente chiave: https://api.postman.com/collections/26036241-0e3595dc-05ff-499a-9322-7201b38653f0?access_key=PMAT-01H5R2RAZH4SWXBBS7XBF4VSTV
 
-Storico mosse in pdf con la libreria pdfkit:
+Storico mosse in pdf con la libreria pdfkit di una partita utente contro AI:
 ![image](https://github.com/sudden69/ProgettoPA/assets/62214136/d0dfd884-0ecd-4bdc-ae5a-14fbd1850bd8)
 
 Un esempio di come appare boardState sul database pg:

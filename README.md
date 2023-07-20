@@ -58,6 +58,61 @@ Un esempio di come appare boardState sul database pg:
 
 Gli indici vanno da 0 a 9, in modulo tre rappresentano la colonna mentre divisi per 3 rappresentano la riga.
 
+Esempio di registrazione utente che restituisce un token JWT:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/1c75e471-0fc4-453a-ab99-61c11794d83c)
+
+Esempio di richiesta get autenticata:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/a627719a-a86b-415a-b10a-03907c28211a)
+
+Esempio di login:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/e4ca4651-5ac9-48ee-8148-e5d96eb6aa61)
+
+Esempio di recharge del credito (il JWT nell'header appartiene ad un admin):
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/4bdccc68-433b-445d-9010-d2d494a84f85)
+
+Esempio di gestione dell'errore quando l'utente è già impegnato in un altra partita:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/c8d95767-61a6-4aec-9213-ecaa01059051)
+
+Esempio di creazione sfida ad AI:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/4cc626c2-2f76-4465-a4da-9eea246999b8)
+
+Esempio di errore quando la partita è terminata ma si tenta ancora di muovere:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/9d99727b-f0cf-45e7-950a-a431741a1201)
+
+Esempio di controllo sui turni:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/c0d0d460-35e1-4db6-99d8-194ca3cb49d9)
+
+Esempio di errore perché non si possiede uno dei due JWT per accedere ad una specifica partita PVP:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/cfd41a98-8111-4684-ac4d-375c5270f819)
+
+Esempio di mossa riuscita:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/2b3f29c8-498d-411e-beb6-873cad8287c5)
+
+Esempio di abbandono:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/a146ae60-b516-4c75-a362-4438e49c4a02)
+
+Esempio di controllo status:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/d7b2e7ab-420e-45ee-8f34-a8f23168900d)
+
+Esempio di classifica dal giocatore con più vittorie a scendere:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/76df7183-0b0a-4520-8f73-3ad23e593d86)
+
+Esempio di credito insufficiente:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/f0ded760-365d-4d38-8a9f-bcfcf5b16048)
 
 
 ## Dati di Test
@@ -65,7 +120,7 @@ Gli indici vanno da 0 a 9, in modulo tre rappresentano la colonna mentre divisi 
 L'applicazione fornisce dati di test per inizializzare il sistema. È possibile eseguire il seguente comando per popolare il database con dati di esempio:
 
 ```bash
-node dist\seed.ts
+node dist\seed.js
 ```
 ## Design Pattern
 

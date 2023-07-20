@@ -1,4 +1,4 @@
-# Tic Tac Toe - Backend
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/cc28643b-0bf6-4818-80ae-6467482bdb9e)# Tic Tac Toe - Backend
 
 
 ## Descrizione
@@ -30,11 +30,11 @@ npm install
 
 3. Configurare Postgres e impostare la connessione al database nel file `.env`.Attualmente la password è admin, la porta è 5432 e l'host è db, che era il nome del database del container durante la fase di test.
 
-4. Avviare l'applicazione:
+**4. Avviare l'applicazione:**
 
 Sarà sufficiente utilizzare il comando docker-compose up
 
-5. Il server dovrebbe essere in esecuzione su http://localhost:3000.
+Il server dovrebbe essere in esecuzione su http://localhost:3000, mentre il db su http://localhost:5432, ma internamente al container.
 
 ## Endpoint API
 
@@ -57,14 +57,14 @@ node dist\seed.ts
 ```
 ## Design Pattern
 
-Singleton:
+**Singleton:**
 L'utilizzo delle variabili app, sequelize, e dotenv.config() segue un approccio singleton, garantendo che ci sia una sola istanza di queste variabili nell'applicazione. In particolare ogni model fa affidamento sulla stessa connessione al database.
 
 Il progetto ha una struttura organizzata secondo il pattern MVC (Model-View-Controller) con l'uso di middleware. Ecco come le diverse componenti del progetto si collegano al pattern MVC:
 
-Model:
+**Model:**
 
-Nella directory models viene sviluppato il modello di Game, Move, e User in un singolo file models.ts. Questo utilizza il pattern factory e lascia che l'implemantazione finale avvenga in db.ts
+Nella directory models viene sviluppato il modello di Game, Move, e User in un singolo file models.ts. Questo utilizza il pattern **factory** e lascia che l'implemantazione finale avvenga in db.ts
 
 User: rappresenta gli attributi di un utente e fornisce metodi per accedere a questi dati, tra cui la proprietà isAdmin che determina se l'user è in grado di gestire e ricaricare il proprio credito e quello degli altri utenti, ma anche la creazione, l'aggiornamento, la ricerca di utenti esistenti.
 
@@ -72,7 +72,8 @@ Game: rappresenta una singola partita nel database e contiene lo status sia come
 
 Move: rappresenta una singola mossa effettuata da un utente o da un AI. Esistono dei controlli di validità che verranno gestiti dai middleware.  
 
-Controller:
+**Controller:**
+
 userController: implementa le richieste delle rotte relative agli utenti, come l'aggiornamento dell'email e del nome utente oppure la stampa di un json con gli attributi dell'utente dato un JWT di autenticazione.
 
 gameController: sviluppa il codice relativo alle partite, come la creazione di una nuova partita, la classifica(rotta pubblica), la gestione delle mosse dell'intelligenza artificiale, la gestione e l'aggiornamento delle mosse(si è preferito non sviluppare un controller apposito),  la possibilità di abbandono e la logica di vittoria. Sono presenti anche diverse funzioni di utilità, come la funzione di generazione pdf per lo storico delle mosse.
@@ -81,7 +82,7 @@ authController: qui avviene l'autenticazione attraverso i token jwt, in particol
 
 userAdminController: controller apposito dell'admin per la gestione del credito degli utenti.
 
-Middleware:
+**Middleware:**
 
 authenticateToken: sono presenti due middleware separati per la gestione degli errori dei token di autenticazione di un utente admin o user semplice, questo per una gestione più semplice in fase di debug
 
@@ -95,7 +96,47 @@ Il progetto segue quindi una struttura MVC ben precisi, dove le componenti del m
 
 ## Diagrammi UML
 
+Gestione Utenti:
 
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/d44563eb-62e1-4495-936d-9522f113fe78)
+
+Gestione Partite:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/006acfd0-2308-46ca-9009-3755c0087fee)
+
+Diagramma Classi: (Concettuale, nell'implementazione non è stata necessaria una classe AI e non si sono usate le enum, la gestione è stata diversa ma con la stessa logica
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/e8e59502-d954-4ec4-adb6-b9ef53daacee)
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/b88d3c80-c7c7-49c9-b0fe-0fb409c15b7e)
+(Approssimazione che non tiene conto degli altri livelli)
+
+Diagramma attività (Partita):
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/4615a91b-df53-4e64-843f-45c516b2b559)
+
+Diagramma controller:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/9c5a39f3-8eb2-48cd-9d69-46cb61d013ed)
+
+Diagramma middleware:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/90077a1c-5da4-4569-970a-ab03872d52e5)
+
+Diagramma delle interazioni per lo storico mosse:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/7cf17233-3ccb-4644-8e62-914b04f1c56d)
+
+Diagramma delle interazioni per la richiesta di status della partita:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/39fb7fb1-830a-4082-a275-e8c9355e7e4b)
+Diagramma delle interazioni per una richiesta di abbandono:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/678d1d66-b1e2-4195-bc40-bc3ecbb7ea7b)
+
+Diagramma delle interazioni per makeMove:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/830a56ca-0403-4b4e-ac8d-ea069656ad29)
 
 ## Come Giocare
 

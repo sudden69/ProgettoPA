@@ -205,13 +205,18 @@ Diagramma delle interazioni per makeMove:
 
 ![image](https://github.com/sudden69/ProgettoPA/assets/62214136/830a56ca-0403-4b4e-ac8d-ea069656ad29)
 
+Diagramma di struttura per l'autenticazione:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/33a25f03-aeb5-4314-a002-9e8b51633b8c)
+
+
 ## Come Giocare
 
 1. Registrarsi o effettuare l'accesso come utente per ottenere il token JWT.
 2. Creare una nuova partita specificando il tipo di gioco e l'e-mail dell'avversario (nel caso di una partita utente vs. utente).
 3. Utilizzare il token JWT per effettuare le mosse nella partita.
 4. Verificare lo stato della partita e la cronologia delle mosse, se necessario.
-5. Utilizzare la rotta "abbandona-partita" per abbandonare una partita, se lo si desidera.
+5. Utilizzare la rotta "abandon" per abbandonare una partita, se lo si desidera.
 
 ## Autore
 

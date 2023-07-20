@@ -9,7 +9,7 @@ Questo progetto è un'applicazione backend che consente agli utenti di giocare a
 
 - Autenticazione Utenti: Gli utenti possono autenticarsi utilizzando token JWT.
 - Creazione Partita: Gli utenti possono creare una nuova partita specificando il tipo di gioco (utente vs. utente o utente vs. IA) e l'e-mail dell'avversario (nel caso di una partita utente vs. utente).
-- Sistema di Crediti per le Partite: Viene addebitato un certo numero di token per la creazione di ogni partita e per ogni mossa effettuata durante il gioco. I token degli utenti sono gestiti e memorizzati nel database.
+- Sistema di Crediti per le Partite: Viene addebitato un certo numero di token per la creazione di ogni partita (0.5 se PVP, 0.75 contro AI) e per ogni mossa effettuata (0.015) durante il gioco. I token degli utenti sono gestiti e memorizzati nel database.
 - Mosse nella Partita: Gli utenti possono effettuare mosse in una partita specifica e il sistema verifica se la mossa è valida o meno.
 - Abbandono della Partita: Gli utenti possono abbandonare una partita in corso.
 - Stato della Partita: Gli utenti possono verificare lo stato di una partita specifica, inclusi i dettagli di chi è il turno e se la partita è terminata o meno.

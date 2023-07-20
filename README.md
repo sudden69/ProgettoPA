@@ -124,6 +124,8 @@ node dist\seed.js
 ```
 ## Design Pattern
 
+**Dependency Injection**: il pattern Dependency Injection è stato applicato per iniettare le dipendenze delle classi. Questo rende il codice più modulare e facilita la gestione delle dipendenze
+
 **Singleton:**
 L'utilizzo delle variabili app, sequelize, e dotenv.config() segue un approccio singleton, garantendo che ci sia una sola istanza di queste variabili nell'applicazione. In particolare ogni model fa affidamento sulla stessa connessione al database.
 

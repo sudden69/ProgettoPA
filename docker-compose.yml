@@ -17,6 +17,7 @@ services:
       DB_USER: postgres
       DB_PASSWORD: admin
       DB_NAME: postgres
+      JWT_SECRET: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYmhvc3QiOiJsb2NhbGhvc3QiLCJkYl9uYW1lIjoiY29uc2VnbmEiLCJkYl91c2VyIjoicG9zdGdyZXMifQ.k4lTFKTcNRIJBQNfEqFs6AeAxlFW1gpd1KjQfF8PtmM
     links:
       - db
     volumes:
@@ -35,3 +36,6 @@ services:
 volumes:
   db:
     driver: local
+
+
+

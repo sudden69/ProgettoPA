@@ -48,6 +48,18 @@ Il server dovrebbe essere in esecuzione su http://localhost:3000, mentre il db s
 - **GET /api/leaderboard**: Ottieni la classifica.
 
 Le api postman utilizzate per i test si possono ottenere con la seguente chiave: https://api.postman.com/collections/26036241-0e3595dc-05ff-499a-9322-7201b38653f0?access_key=PMAT-01H5R2RAZH4SWXBBS7XBF4VSTV
+
+Storico mosse in pdf con la libreria pdfkit:
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/d0dfd884-0ecd-4bdc-ae5a-14fbd1850bd8)
+
+Un esempio di come appare boardState sul database pg:
+
+![image](https://github.com/sudden69/ProgettoPA/assets/62214136/d16534bb-e92c-4945-bb7e-b4ee48a14370)
+
+Gli indici vanno da 0 a 9, in modulo tre rappresentano la colonna mentre divisi per 3 rappresentano la riga.
+
+
+
 ## Dati di Test
 
 L'applicazione fornisce dati di test per inizializzare il sistema. È possibile eseguire il seguente comando per popolare il database con dati di esempio:

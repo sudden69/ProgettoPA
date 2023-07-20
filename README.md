@@ -3,7 +3,7 @@
 
 ## Descrizione
 
-Questo progetto è un'applicazione backend che consente agli utenti di giocare a Tic Tac Toe. Gli utenti possono interagire con l'applicazione tramite endpoint API RESTful e giocare l'uno contro l'altro o contro un motore di intelligenza artificiale utilizzando la libreria tic-tac-toe-ai-engine. L'applicazione è costruita utilizzando Express e Sequelize e Postgres.
+Questo progetto è un'applicazione backend che consente agli utenti di giocare a Tic Tac Toe. Gli utenti possono interagire con l'applicazione tramite endpoint API RESTful e giocare l'uno contro l'altro o contro un motore di intelligenza artificiale utilizzando la libreria tic-tac-toe-ai-engine. L'applicazione è costruita utilizzando Express, Sequelize e Postgres.
 
 ## Funzionalità
 

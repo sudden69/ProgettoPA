@@ -25,34 +25,34 @@ export const getLeaderboard = async (req: Request, res: Response) => {
         [Sequelize.literal(`(
           SELECT COUNT(*)
           FROM "Games"
-          WHERE (CAST("Games"."winner" AS INTEGER) = "User"."id" AND "Games"."status" != 'draw')
-          OR (CAST("Games"."opponentId" AS INTEGER) = "User"."id" AND "Games"."status" = 'draw')
+          WHERE (CAST("Games"."winner" AS INTEGER) = "User"."id")
         )`), 'wonGames'],
         [Sequelize.literal(`(
           SELECT COUNT(*)
           FROM "Games"
-          WHERE (CAST("Games"."opponentId" AS INTEGER) = "User"."id" AND "Games"."status" != 'draw')
-          OR (CAST("Games"."winner" AS INTEGER) = "User"."id" AND "Games"."status" = 'draw')
+          WHERE ((CAST("Games"."winner" AS INTEGER) != "User"."id") AND ((CAST("Games"."opponentId" AS INTEGER) = "User"."id")
+          OR (CAST("Games"."userId" AS INTEGER) = "User"."id")))
         )`), 'lostGames'],
         [Sequelize.literal(`(
           SELECT COUNT(*)
           FROM "Games"
-          WHERE "Games"."status" = 'abandoned' AND CAST("Games"."winner" AS INTEGER) = "User"."id"
+          WHERE (("Games"."status" = 'abandoned') AND (CAST("Games"."winner" AS INTEGER) = "User"."id"))
         )`), 'wonGamesByAbandon'],
         [Sequelize.literal(`(
           SELECT COUNT(*)
           FROM "Games"
-          WHERE "Games"."status" = 'abandoned' AND CAST("Games"."opponentId" AS INTEGER) = "User"."id"
+          WHERE "Games"."status" = 'abandoned' AND CAST("Games"."winner" AS INTEGER) != "User"."id" AND (CAST("Games"."opponentId" AS INTEGER) = "User"."id"
+          OR CAST("Games"."userId" AS INTEGER) = "User"."id")
         )`), 'lostGamesByAbandon'],
         [Sequelize.literal(`(
           SELECT COUNT(*)
           FROM "Games"
-          WHERE "Games"."opponentId" = 0 AND "Games"."status" = 'completed' AND CAST("Games"."winner" AS INTEGER) = "User"."id"
+          WHERE CAST("Games"."opponentId" AS INTEGER) = 0 AND CAST("Games"."winner" AS INTEGER) = "User"."id"
         )`), 'wonGamesAgainstAI'],
         [Sequelize.literal(`(
           SELECT COUNT(*)
           FROM "Games"
-          WHERE "Games"."opponentId" = 0 AND "Games"."status" = 'completed' AND CAST("Games"."opponentId" AS INTEGER) = "User"."id"
+          WHERE CAST("Games"."opponentId" AS INTEGER) = 0  AND CAST("Games"."userId" AS INTEGER) = "User"."id" AND CAST("Games"."winner" AS INTEGER) != "User"."id"
         )`), 'lostGamesAgainstAI'],
       ],
       order: [
@@ -488,10 +488,3 @@ export const getGameHistory = async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 };
-
-
-
-
-
-
-
